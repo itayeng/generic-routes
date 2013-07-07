@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  if submit
+    p this is a test
+
+  test this only if exists a submit:
+  input(type='submit', value='submit')
