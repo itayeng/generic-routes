@@ -32,7 +32,17 @@ module.exports.Repository = function(){
 
   //returns the requested route 
   this.find = function(find){
-    return _.find(routes,find);
+    if(typeof(find) == typeof('')){
+      //search by route
+      return _.find(routes,function(r){
+        return r.route == find;
+      });
+    }
+    else if(typeof(find) == typeof(function(){})){
+      //search by custom method
+      return _.find(routes,find);
+    }
+    return null;
   }
 
   //returns all

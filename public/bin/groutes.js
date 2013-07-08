@@ -143,6 +143,28 @@ var save = function(app){
 
 exports.init = init;
 exports.save = save;
-exports.getRepository = function(){ return repository; }
-exports.saveRepository = function(newRepository){ repository = newRepository; }
+
+// ----- Repository handlers -----
+
+exports.add = function(route){
+  repository.add(route);
+}
+exports.remove = function(route){
+  repository.remove(route);
+}
+exports.getAll = function(){
+  return repository.getAll();
+}
+exports.setAll = function(routes){
+  repository.setAll(routes);
+}
+exports.find = function(find){
+  return repository.find(find); 
+}
+exports.edit = function(route){
+  repository.edit(route);
+}
+
+//exports.getRepository = function(){ return repository; }
+//exports.saveRepository = function(newRepository){ repository = newRepository; }
 

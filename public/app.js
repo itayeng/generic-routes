@@ -30,13 +30,9 @@ if ('development' == app.get('env')) {
 var groutes = require('./bin/groutes');
 groutes.init();
 //example how to create on solo
-var routeRepository = groutes.getRepository(); //get route repository
-var route = routeRepository.find(function(r){ //find requested route, check api for more methods or routerepo.js file
-  return r.route == '/admin/home/logoff';
-});
+var route = groutes.find('/admin/home/logoff');
 route.method = 'get';//change the get manually
-routeRepository.edit(route);//update the repository
-groutes.saveRepository(routeRepository);//save the repository inside groutes
+groutes.edit(route);//update the repository
 //example end
 app = groutes.save(app);//save changes inside app 
 
